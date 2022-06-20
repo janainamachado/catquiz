@@ -6,7 +6,7 @@ const catApiKey = process.env.REACT_APP_CAT_API_KEY
 
 function App() {
 
-  const emptyRandomCat = { url: 'empty' }
+  const emptyRandomCat = { url: undefined }
   const [randomCatFirst, setRandomCatFirst] = useState(emptyRandomCat)
   const [randomCatSecond, setRandomCatSecond] = useState(emptyRandomCat)
   const [voteCounter, setVoteCounter] = useState(0)
@@ -62,12 +62,13 @@ function App() {
       <Grid.Container gap={2} justify="center">
         <Row justify="center">
           <Grid>
+            <Text color="#ff4ecd">Click on the button to start</Text>
             <Button color="gradient" onClick={renderRandomQuestion}>What type of cat am I?</Button>
           </Grid>
         </Row>
       </Grid.Container>
       
-      {voteCounter < requiredAnswersNumber &&
+      {voteCounter < requiredAnswersNumber && randomCatFirst.url !== undefined &&
         <Question 
           randomCatFirst={randomCatFirst}
           randomCatSecond={randomCatSecond}

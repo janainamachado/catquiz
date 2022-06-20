@@ -12,7 +12,16 @@ function Question(props) {
           </Text>
         </Grid>
       </Row>
-      <Grid>
+
+      <Row justify="center">
+        <Grid>
+          <Text css={{
+          textGradient: "45deg, $yellow600 -20%, $red600 100%",
+           }}> Select one of the cats</Text>
+        </Grid>
+      </Row>
+
+      <Grid>  
         <Link onClick={props.vote}>
           <Image
           width={500}
